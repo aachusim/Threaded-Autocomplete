@@ -1,5 +1,5 @@
 # Threaded-Autocomplete
-INSTRUCTIONS
+INSTRUCTIONS: 
 Your assignment is to complete the four TODOs
 in this document, starting with the top TODO
 and working your way down in order.
