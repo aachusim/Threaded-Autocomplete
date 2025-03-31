@@ -104,6 +104,10 @@ public class SuggestionGUI extends JFrame
 	Test that the code still runs and compiles
 	after this. You should notice no changes
 	at this point. */
+
+	private JTextArea x;
+	private JTextArea y;
+	private JTextArea z;
 	
 	
 	// set up GUI
@@ -135,6 +139,16 @@ public class SuggestionGUI extends JFrame
 			setBounds(10,520,800,200);
 		Run and test your code. You should notice
 		three new text areas on the GUI. */
+
+		JTextArea xArea = new JTextArea();
+		xArea.setBounds(10,80,800,200);
+		add(xArea);
+		JTextArea yArea = new JTextArea();
+		yArea.setBounds(10,300,800,200);
+		add(yArea);
+		JTextArea zArea = new JTextArea();
+		zArea.setBounds(10,520,800,200);
+		add(zArea);
 		
 		setSize(840, 840); // set size of window
 		setVisible(true);  // show window
@@ -152,6 +166,10 @@ public class SuggestionGUI extends JFrame
 			"GreatExpectations.txt"
 		Run and test your code. You should notice
 		no new features at this point. */
+
+		ThreadedAutocomplete xTAC = new ThreadedAutocomplete("Frankenstein.txt", enterField, xArea);
+		ThreadedAutocomplete yTAC = new ThreadedAutocomplete("MobyDick.txt", enterField, yArea);
+		ThreadedAutocomplete zTAC = new ThreadedAutocomplete("GreatExpectations.txt", enterField, zArea);
 		
 		
 		/* TODO: Write code to start all three
@@ -161,6 +179,11 @@ public class SuggestionGUI extends JFrame
 		the three text areas (unless there is no
 		match in the novel with the most recent
 		word). */
+
+		// Starts all threads
+		xTAC.start();
+		yTAC.start();
+		zTAC.start();
 		
 	}
 }
