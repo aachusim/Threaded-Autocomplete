@@ -1,6 +1,6 @@
 /*
 Andrew Achusim
-03/27/2025
+04/01/2025
 Purpose: To complete the four TODOs in SuggestionGUI.java then make AT LEAST ONE additional
 modification of your choice (STOP ON EXCLAMATION).
 Sources:
@@ -105,6 +105,7 @@ public class SuggestionGUI extends JFrame
 	after this. You should notice no changes
 	at this point. */
 
+	// private variables.
 	private JTextArea x;
 	private JTextArea y;
 	private JTextArea z;
@@ -140,14 +141,19 @@ public class SuggestionGUI extends JFrame
 		Run and test your code. You should notice
 		three new text areas on the GUI. */
 
+		// JTextArea objects.
 		JTextArea xArea = new JTextArea();
-		xArea.setBounds(10,80,800,200);
-		add(xArea);
 		JTextArea yArea = new JTextArea();
-		yArea.setBounds(10,300,800,200);
-		add(yArea);
 		JTextArea zArea = new JTextArea();
+
+		// Sets the size and placement of the JTextArea objects.
+		xArea.setBounds(10,80,800,200);
+		yArea.setBounds(10,300,800,200);
 		zArea.setBounds(10,520,800,200);
+
+		// Adds the JTextArea objects to JFrame.
+		add(xArea);
+		add(yArea);
 		add(zArea);
 		
 		setSize(840, 840); // set size of window

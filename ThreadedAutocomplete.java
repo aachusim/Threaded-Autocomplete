@@ -1,6 +1,6 @@
 /*
 Andrew Achusim
-03/27/2025
+04/01/2025
 Purpose: To complete the four TODOs in SuggestionGUI.java then make AT LEAST ONE additional
 modification of your choice (STOP ON EXCLAMATION).
 Sources:
@@ -179,31 +179,27 @@ public class ThreadedAutocomplete extends Thread
 	//or question mark.
 	private String getTextToPeriod(Scanner input, String remainder)
 	{
+		// Integer variables that contain the value of the remainder of a string.
 		int i = remainder.indexOf(".");
 		int j = remainder.indexOf("?");
 		int k = remainder.indexOf("!");
-		int x = i;
-		//If no period is found then set x
-		//to the index of any question mark.
-		if(x == -1)
-			x = j;
-		//If a period is found and a question
-		//mark is too, use the earlier
-		//punctuation
-		else if(j!=-1 && j<x)
-			x = j;
+		// An integer variable that holds the minimum value of the punctuation. 
+		int x = -1;
+		// An if loop that checks if the value for i is less x but not equal to -1.
+		if(i != -1 && (x == -1 || i < x)){x = i;}
+		// An if loop that checks if the value for j is less x but not equal to -1.
+		if(j != -1 && (x == -1 || j < x)){x = j;}
+		// An if loop that checks if the value for k is less x but not equal to -1.
+		if(k != -1 && (x == -1 || k < x)){x = k;}
 		
 		//If a sentence-ender was found, return
 		//the String up to and including the
 		//punctuation.
-		if(x != -1)
-		{
-			return remainder.substring(0, x+1);
-		}
+		if(x != -1){return remainder.substring(0, x + 1);}
 		if(input.hasNextLine())
 		{
 			//Recursion
-			remainder += " "+getTextToPeriod(input, input.nextLine());
+			remainder += " " + getTextToPeriod(input, input.nextLine());
 		}
 		return remainder;
 	}
